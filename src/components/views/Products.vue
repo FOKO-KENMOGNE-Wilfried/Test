@@ -17,11 +17,7 @@
       </div>
       <div class="products">
 
-        <Card :products="products[0]" :add="add" />
-        <Card :products="products[0]" :add="add" />
-        <Card :products="products[0]" :add="add" />
-        <Card :products="products[0]" :add="add" />
-        <Card :products="products[0]" :add="add" />
+        <Card v-for="product in products" :key="product.id" :products="product" :add="add" />
   
       </div>
 
@@ -58,9 +54,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    border: 1px solid white;
     width: 100%;
-    height: 900px;
+    height: 90vh;
+    overflow: auto;
+    scrollbar-width: none;
   }
   .left{
     display: flex;

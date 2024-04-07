@@ -9,19 +9,15 @@ import { onMounted, ref } from "vue"
   
   const class_image = ref("image_card");
   const class_product = ref("product_card");
-  const class_product_computer = ref("class_product_computer");
-  const class_image_computer = ref("class_image_computer");
-
-  onMounted(() => {
-    const isComputer = ref(products.type);
-  })
+  const class_product_computer = ref("product_card_computer");
+  const class_image_computer = ref("image_card_computer");
 
 </script>
 
 <template>
-	<div :class="!isComputer ? class_product : class_product_computer">
+	<div :class="!products.type ? class_product : class_product_computer">
 	          
-	          <div :class="!isComputer ? class_image : class_image_computer">
+	          <div :class="!products.type ? class_image : class_image_computer">
 	            <img :src="products.image" alt="watch">
 	          </div>
 	          <div class="detail">
@@ -52,10 +48,9 @@ import { onMounted, ref } from "vue"
   }
 	.product_card{
     width: 230px;
-    height: 200px;
   }
   .product_card_computer{
-    width: 230px;
+    width: 500px;
     height: 200px;
   }
   .image_card{
@@ -65,6 +60,16 @@ import { onMounted, ref } from "vue"
     align-items: center;
     background-color: gray;
     width: 230px;
+    height: 260px;
+    border-radius: 20px;
+  }
+  .image_card_computer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    width: 500px;
     height: 260px;
     border-radius: 20px;
   }
