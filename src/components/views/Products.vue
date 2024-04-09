@@ -2,27 +2,41 @@
   
   // The imports
   import { products } from "../../data/product.json";
-  import { computed, ref } from "vue";
-  import Card from './Card.vue';
+  import { computed, onMounted, ref } from "vue";
   
+  // The import of the components
+  import Card from './Card.vue';
+  import BasketCard from './BasketCard.vue';
+  
+  // The imports of the images
   import add from "../../assets/add.svg";
   import bag from "../../assets/bag.svg";
-  import BasketCard from './BasketCard.vue'
 
   // The const that contain the data importing to the json file
   const pro = ref(products);
   // The variable to the value of the input
-  const inp = ref("")
+  const inp = ref("");
+  // The array of the products that are in the basket
+  const pro_basket = ref(localStorage.getItem("products"));
+  console.log(pro_basket);
+  // The json value of the contain of the localstorage
+  var jsonPro_basket = ref(JSON.parse(pro_basket.value));
 
+  // The function to update the products
+  const updateBasketList = computed(() => {
+    console.log("List is up to date !")
+    return jsonPro_basket.value;
+  })
+  
   // The variable that conatain the filtered list
   const filteredProducts = computed(() => {
     const input = inp.value;
     return pro.value.filter(product => product.name.toLowerCase().includes(input.toLowerCase()));
   })
-
+  
   // The function to change the value of the input
   function onInput(e){
-    inp.value = e.target.value
+    inp.value = e.target.value;
   }
 
 </script>
@@ -38,7 +52,7 @@
       </div>
       <div class="products">
 
-        <Card v-for="product in filteredProducts" :key="product.id" :products="product" :add="add" />
+        <Card @value="(value) => jsonPro_basket = value" v-for="product in filteredProducts" :key="product.id" :products="product" :add="add" />
   
       </div>
 
@@ -50,11 +64,7 @@
 
         <div class="basket_product">
 
-          <BasketCard :pro="pro" />
-          <BasketCard :pro="pro" />
-          <BasketCard :pro="pro" />
-          <BasketCard :pro="pro" />
-
+          <BasketCard v-for="product_basket in updateBasketList" :key="product_basket.id" :pro="product_basket" />
 
         </div>
 
@@ -80,6 +90,7 @@
     display: flex;
     gap: 10px;
     padding: 10px;
+    width: 85%;
     height: 200px;
     overflow: auto;
     scrollbar-width: none;

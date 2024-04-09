@@ -1,10 +1,11 @@
 <script setup>
 
   import { ref } from "vue"
-import { RouterView } from "vue-router"
+  import { RouterView } from "vue-router"
   import LeftNavbar from "./components/LeftNavbar.vue"
 
   const container = ref("container")
+  
 
 </script>
 

@@ -1,12 +1,14 @@
-<script setup lang="ts">
-defineProps<{ 
-	pro: { id: number; name: string; price: string; spec: string; image: string; type: boolean; }[];
-}>()
+<script setup>
+
+  const props = defineProps({ 
+    pro: Object,
+  })
+
 </script>
 
 <template>
 	<div class="box">
-	    <img class="basket_image" :src="pro[0].image" alt="product">
+	    <img class="basket_image" :src="pro.image" alt="product">
 	</div>
 </template>
 
