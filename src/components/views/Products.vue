@@ -2,7 +2,7 @@
   
   // The imports
   import { products } from "../../data/product.json";
-  import { computed, onMounted, ref } from "vue";
+  import { computed, ref } from "vue";
   
   // The import of the components
   import Card from './Card.vue';
@@ -125,10 +125,8 @@
     flex-direction: row;
     justify-content: center;
     border-left: 4px solid white;
-    border-right: 4px solid white;
     padding-left: 20px;
     padding-top: 10%;
-    border-radius: 20px;
   }
   .search{
     display: flex;

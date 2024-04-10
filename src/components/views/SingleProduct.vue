@@ -1,10 +1,12 @@
 <script setup>
 
     import { computed, ref } from "vue";
+    import { products } from "../../data/product.json";
 
     // The imports of the images
     import bag from "../../assets/bag.svg";
     import add from "../../assets/add.svg";
+    import back from "../../assets/back.svg";
 
     // The import of the component
     import BasketCard from "./BasketCard.vue";
@@ -13,13 +15,23 @@
     const pro_basket = ref(localStorage.getItem("products"));
     console.log(pro_basket);
 
+    // To collect the id of the product
+    const productId = window.location.href.split("/")[4];
+    console.log(productId);
+
     // The json value of the contain of the localstorage
     var jsonPro_basket = ref(JSON.parse(pro_basket.value));
+    console.log(jsonPro_basket.value);
+
+    const current_product = ref(products.filter( product =>  product.id == productId)[0]);
+    console.log(current_product.value);
+    
 
     // The function to update the products
     const updateBasketList = computed(() => {
-        return jsonPro_basket.value.filter( product => product.number > 0);
+        return jsonPro_basket.value;
     })
+
 
 </script>
 
@@ -31,19 +43,21 @@
 
             <div class="single_product">
     
-                <div class="back">
-                    <img src="" alt="back">
-                    <p>Back</p>
-                </div>
+                <RouterLink to="/" class="link">
+                    <div class="back">
+                        <img class="back_image" :src="back" alt="back">
+                        <p>Back</p>
+                    </div>
+                </RouterLink>
     
                 <div class="box1">
                     <div class="image_box">
-                        <img :src="updateBasketList[0].image" alt="product">
+                        <img :src="current_product.image" alt="product">
                     </div>
                     <div class="info">
-                        <h1 class="info_title">{{ updateBasketList[0].name }}</h1>
-                        <p class="info_spec">{{ updateBasketList[0].spec }}</p>
-                        <p class="info_price">{{ updateBasketList[0].price }}</p>
+                        <h1 class="info_title">{{ current_product.name }}</h1>
+                        <p class="info_spec">{{ current_product.spec }}</p>
+                        <p class="info_price">{{ current_product.price }}</p>
                         <p class="info_description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti ducimus distinctio porro aliquid quasi sit obcaecati dolorum, dolores voluptatem esse quia magnam tenetur accusamus eveniet tempore, corporis accusantium quis quisquam ut alias ipsum ex adipisci iure totam. Quo, molestiae? Nostrum, reiciendis consectetur eius illo sint quos modi, laudantium exercitationem repellat, optio sunt earum harum blanditiis recusandae nesciunt velit quibusdam iste. Tenetur consectetur quod esse voluptate porro rerum voluptas unde cum reiciendis laudantium distinctio quaerat officiis, quisquam adipisci odio velit totam.</p>
                     </div>
                 </div>
@@ -89,6 +103,10 @@
 
 <style scoped>
 
+    .link{
+        color: white;
+        text-decoration: none;
+    }
     .description{
         height: 550px;
         overflow: auto;
@@ -97,6 +115,13 @@
     }
     .info_title{
         font-size: 2.5em;
+    }
+    .info_price{
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    .info_description{
+        margin-top: -20px;
     }
     .info_spec{
         margin-top: -20px;
@@ -193,10 +218,8 @@
         flex-direction: row;
         justify-content: center;
         border-left: 4px solid white;
-        border-right: 4px solid white;
         padding-left: 20px;
         padding-top: 10%;
-        border-radius: 20px;
     }
 
 </style>

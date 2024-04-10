@@ -8,6 +8,7 @@
     import home from "../assets/Home.svg"
     import basket from "../assets/Basket.svg"
     import notification from "../assets/notification.svg"
+    import logo from "../assets/logo.svg";
 
 </script>
 
@@ -16,7 +17,7 @@
     <div class="container">
 
         <div class="box1">
-            <a href=""><img src="" alt="logo"></a>
+            <a href=""><img :src="logo" alt="logo"></a>
             <a href=""><img :src="menu" alt="menu"></a>
             <RouterLink to="/"><img :src="home" alt="Home"></RouterLink>
             <RouterLink to="/basket"><img :src="basket" alt="basket"></RouterLink>

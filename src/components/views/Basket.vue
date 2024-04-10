@@ -111,10 +111,8 @@
         flex-direction: row;
         justify-content: center;
         border-left: 4px solid white;
-        border-right: 4px solid white;
         padding-left: 20px;
         padding-top: 10%;
-        border-radius: 20px;
     }
     .bag{
         display: flex;

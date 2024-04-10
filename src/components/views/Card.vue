@@ -9,6 +9,9 @@ import { computed, ref, watch } from "vue"
   // The emit to send data at the parent
   const emit = defineEmits(["value"]);
 
+  // For the route url
+  const url = "/single_product/"
+
   // The variables to switch the class of the components
   const class_image = ref("image_card");
   const class_product = ref("product_card");
@@ -79,7 +82,7 @@ import { computed, ref, watch } from "vue"
 	<div :class="!products.type ? class_product : class_product_computer">
 	          
 	          <div :class="!products.type ? class_image : class_image_computer">
-              <RouterLink to="/single_product/1">
+              <RouterLink :to="url + products.id">
                 <img :src="products.image" alt="watch">
               </RouterLink>
 	          </div>
