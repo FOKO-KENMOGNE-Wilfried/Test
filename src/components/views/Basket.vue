@@ -9,17 +9,18 @@
 
     // The import of the component
     import BasketCard from "./BasketCard.vue";
-import ProductManegeCard from './ProductManegeCard.vue'
+    import ProductManegeCard from './ProductManegeCard.vue'
 
     // The array of the products that are in the basket
     const pro_basket = ref(localStorage.getItem("products"));
     console.log(pro_basket);
+
     // The json value of the contain of the localstorage
     var jsonPro_basket = ref(JSON.parse(pro_basket.value));
 
     // The function to update the products
     const updateBasketList = computed(() => {
-        return jsonPro_basket.value;
+        return jsonPro_basket.value.filter( product => product.number > 0);
     })
 
 </script>
@@ -32,7 +33,7 @@ import ProductManegeCard from './ProductManegeCard.vue'
             <h1 class="bag_title">Check your bag Items</h1>
             <div class="bag_container">
 
-                <ProductManegeCard :updateBasketList="updateBasketList" :minus="minus" :plus="plus" />
+                <ProductManegeCard @value="(value) => jsonPro_basket = value" v-for="basket_pro in updateBasketList" :key="basket_pro.id" :updateBasketList="basket_pro" :minus="minus" :plus="plus" />
 
             </div>
         </div>
@@ -49,7 +50,7 @@ import ProductManegeCard from './ProductManegeCard.vue'
                 <RouterLink to="/basket" href="" class="button">
                 <div class="basket_add">
                     <img :src="bag" alt="bag">
-                    <p>View Bag</p>
+                    <p>Check Out</p>
                 </div>
                 </RouterLink>
             </div>
@@ -124,6 +125,10 @@ import ProductManegeCard from './ProductManegeCard.vue'
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: 90vh;
+        gap: 20px;
+        overflow: auto;
+        scrollbar-width: none;
     }
 
 </style>
