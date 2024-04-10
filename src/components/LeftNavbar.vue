@@ -1,9 +1,14 @@
 <script setup>
+
+    // The functions import
+    import { RouterLink } from "vue-router";
+
+    // The image import
     import menu from "../assets/menu.svg"
     import home from "../assets/Home.svg"
     import basket from "../assets/Basket.svg"
     import notification from "../assets/notification.svg"
-import { RouterLink } from "vue-router";
+
 </script>
 
 <template>

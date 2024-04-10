@@ -8,7 +8,7 @@ import Basket from "./components/views/Basket.vue";
 
 const routes = [
     { path: "/", component: Products },
-    { path: "/single_product", component: SingleProduct },
+    { path: "/single_product/:id", component: SingleProduct },
     { path: "/basket", component: Basket },
 ];
 

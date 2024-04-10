@@ -79,7 +79,9 @@ import { computed, ref, watch } from "vue"
 	<div :class="!products.type ? class_product : class_product_computer">
 	          
 	          <div :class="!products.type ? class_image : class_image_computer">
-	            <img :src="products.image" alt="watch">
+              <RouterLink to="/single_product/1">
+                <img :src="products.image" alt="watch">
+              </RouterLink>
 	          </div>
 	          <div class="detail">
 	            <div class="view">
@@ -97,7 +99,7 @@ import { computed, ref, watch } from "vue"
 
 <style scoped>
 
-.add{
+  .add{
     display: flex;
     flex-direction: column;
     justify-content: center;
