@@ -1,5 +1,6 @@
 <script setup>
 
+// The props
   const props = defineProps({ 
     pro: Object,
   })

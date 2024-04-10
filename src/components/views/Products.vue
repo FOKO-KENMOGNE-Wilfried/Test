@@ -24,7 +24,6 @@
 
   // The function to update the products
   const updateBasketList = computed(() => {
-    console.log("List is up to date !")
     return jsonPro_basket.value;
   })
   
@@ -68,12 +67,12 @@
 
         </div>
 
-        <a href="" class="button">
+        <RouterLink to="/basket" href="" class="button">
           <div class="basket_add">
             <img :src="bag" alt="bag">
             <p>View Bag</p>
           </div>
-        </a>
+        </RouterLink>
       </div>
     </div>
 
@@ -90,7 +89,7 @@
     display: flex;
     gap: 10px;
     padding: 10px;
-    width: 85%;
+    width: 90%;
     height: 200px;
     overflow: auto;
     scrollbar-width: none;
@@ -117,7 +116,7 @@
     gap: 20px;
     width: 70%;
     height: 45%;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: gray;
     padding: 0px 10px 0px 10px;
   }

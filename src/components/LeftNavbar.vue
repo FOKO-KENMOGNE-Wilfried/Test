@@ -3,6 +3,7 @@
     import home from "../assets/Home.svg"
     import basket from "../assets/Basket.svg"
     import notification from "../assets/notification.svg"
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -12,11 +13,11 @@
         <div class="box1">
             <a href=""><img src="" alt="logo"></a>
             <a href=""><img :src="menu" alt="menu"></a>
-            <a href=""><img :src="home" alt="Home"></a>
-            <a href=""><img :src="basket" alt="basket"></a>
+            <RouterLink to="/"><img :src="home" alt="Home"></RouterLink>
+            <RouterLink to="/basket"><img :src="basket" alt="basket"></RouterLink>
         </div>
         <div class="box2">
-            <a href=""><img :src="notification" alt="notification"></a>
+            <RouterLink to="/"><img :src="notification" alt="notification"></RouterLink>
         </div>
 
     </div>

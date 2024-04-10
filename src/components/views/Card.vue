@@ -1,70 +1,75 @@
 <script setup>
 import { computed, ref, watch } from "vue"
 
-
+  // The props
   const props = defineProps({ 
     products: Object,
     add: String,
   })
+  // The emit to send data at the parent
   const emit = defineEmits(["value"]);
 
-  //emit("value", "Hello");
-  
+  // The variables to switch the class of the components
   const class_image = ref("image_card");
   const class_product = ref("product_card");
   const class_product_computer = ref("product_card_computer");
   const class_image_computer = ref("image_card_computer");
-  const basket_size = ref("");
-  //console.log(basket_size.value)
 
+  // The variables to store the size of the localstorage
+  const basket_size = ref("");
+
+  // The computed to detect the change of the size of the localstorage
   const change = computed(() => {
     const length = basket_size.value;
-    //console.log("Update !!!!")
     return length
   })
   
+  // To listen the change of the value that's return by the computed
   watch( change, (newValue) => {
     emit("value", JSON.parse(localStorage.getItem("products")));
-    console.log("Change detected");
   })
 
+  // The function to add a product at the basket
   function addToBasket(product){
 
+    // If the basket don't exist
     if (localStorage.length == 0) {
 
-      var products = [product]
-      var jsonProducts = JSON.stringify(products)
+      product.number = 1;
+      var products = [product];
+      var jsonProducts = JSON.stringify(products);
       localStorage.setItem("products", jsonProducts);
 
-      //console.log(localStorage.getItem("products").length);
+      // Update of the size of the localstorage
       basket_size.value = localStorage.getItem("products").length;
 
 
     } else {
 
-      console.log("update else")
-      var productsList = localStorage.getItem("products")
-      var jsonProductsList = JSON.parse(productsList)
-      jsonProductsList.push(product)
-      localStorage.setItem("products", JSON.stringify(jsonProductsList))
-      console.log(jsonProductsList)
+      var productsList = localStorage.getItem("products");
+      var jsonProductsList = JSON.parse(productsList);
 
-      //console.log(localStorage.getItem("products").length);
+      let exist = false;
+      jsonProductsList.forEach(element => {
+        console.log(element);
+        if(element.name == product.name){
+          element.number += 1;
+          console.log("Update number !");
+          console.log(element);
+          exist = true;
+        } 
+      });
+      if(!exist){
+        product.number = 1;
+        jsonProductsList.push(product);
+        console.log("Add product !");
+      }
+      localStorage.setItem("products", JSON.stringify(jsonProductsList));
+
+      // Update of the size of the localstorage
       basket_size.value = localStorage.getItem("products").length;
 
     }
-
-
-    
-
-    //console.log(displayTest)
-
-    // console.log("Product add successfull !")
-    // localStorage.setItem("products", JSON.stringify(product))
-    // console.log(localStorage.getItem("products"))
-    //localStorage.clear()
-    //window.localStorage.getItem("products").push({"id":2,"name":"Apple Watch","price":"$ 529.99","spec":"Serie 5 SE","image":"/src/assets/products/apple_watch.svg","type":false})
-    //console.log(window.localStorage.getItem("products"))
 
   }
 
