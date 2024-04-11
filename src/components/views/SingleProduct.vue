@@ -18,7 +18,7 @@
     const productId = window.location.href.split("/")[4];
 
     // The json value of the contain of the localstorage
-    var jsonPro_basket = ref(JSON.parse(pro_basket.value).filter( product => product.number > 0));
+    var jsonPro_basket = ref(JSON.parse(pro_basket.value));
 
     // The variables to store the size of the localstorage
 	const product_number = ref(1);
@@ -31,12 +31,12 @@
 		return pro;
 	})
 
-	// To listen the change of the value that's return by the computed
-	watch( change, (newValue) => {
-        console.log("Watch");
-        jsonPro_basket.value = JSON.parse(localStorage.getItem("products"));
-        console.log(jsonPro_basket)
-	})
+	// // To listen the change of the value that's return by the computed
+	// watch( change, (newValue) => {
+    //     console.log("Watch");
+    //     jsonPro_basket.value = JSON.parse(localStorage.getItem("products"));
+    //     console.log(jsonPro_basket)
+	// })
 
     // The function to add a product at the basket
     function addToBasket(product){
