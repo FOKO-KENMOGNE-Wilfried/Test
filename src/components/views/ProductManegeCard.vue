@@ -85,6 +85,9 @@ import { computed, ref, watch } from "vue";
 
 <style scoped>
 
+	*{
+		color: black;
+	}
 	.product_container{
 		display: flex;
 		flex-direction: row;
@@ -92,7 +95,7 @@ import { computed, ref, watch } from "vue";
 		align-items: center;
 		padding: 0px 40px 10px 10px;
 		border-radius: 15px;
-		background-color: gray;
+		background-color: white;
 		width: 90%;
     }
     .product_name{

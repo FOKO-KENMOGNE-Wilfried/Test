@@ -117,7 +117,7 @@
     width: 70%;
     height: 45%;
     border-radius: 20px;
-    background-color: gray;
+    background-color: #EDEDED;
     padding: 0px 10px 0px 10px;
   }
   .basket_div{
@@ -139,7 +139,8 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: 2px 2px 2px white;
+    background-color: white;
   }
   .container{
     display: grid;

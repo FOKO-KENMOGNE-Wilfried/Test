@@ -1,6 +1,6 @@
 <script setup>
 
-    import { computed, ref } from "vue";
+    import { computed, ref, watch } from "vue";
     import { products } from "../../data/product.json";
 
     // The imports of the images
@@ -13,25 +13,68 @@
 
     // The array of the products that are in the basket
     const pro_basket = ref(localStorage.getItem("products"));
-    console.log(pro_basket);
 
     // To collect the id of the product
     const productId = window.location.href.split("/")[4];
-    console.log(productId);
 
     // The json value of the contain of the localstorage
-    var jsonPro_basket = ref(JSON.parse(pro_basket.value));
-    console.log(jsonPro_basket.value);
+    var jsonPro_basket = ref(JSON.parse(pro_basket.value).filter( product => product.number > 0));
+
+    // The variables to store the size of the localstorage
+	const product_number = ref(1);
 
     const current_product = ref(products.filter( product =>  product.id == productId)[0]);
-    console.log(current_product.value);
-    
 
-    // The function to update the products
-    const updateBasketList = computed(() => {
-        return jsonPro_basket.value;
-    })
+    // The computed to detect the change of the size of the localstorage
+	const change = computed(() => {
+		const pro = jsonPro_basket.value;
+		return pro;
+	})
 
+	// To listen the change of the value that's return by the computed
+	watch( change, (newValue) => {
+        console.log("Watch");
+        jsonPro_basket.value = JSON.parse(localStorage.getItem("products"));
+        console.log(jsonPro_basket)
+	})
+
+    // The function to add a product at the basket
+    function addToBasket(product){
+
+        // If the basket don't exist
+        if (localStorage.length == 0) {
+
+        product.number = 1;
+        var products = [product];
+        var jsonProducts = JSON.stringify(products);
+        localStorage.setItem("products", jsonProducts);
+        jsonPro_basket.value = JSON.parse(localStorage.getItem("products")).filter( product => product.number > 0);
+    } else {
+
+        var productsList = localStorage.getItem("products");
+        var jsonProductsList = JSON.parse(productsList);
+
+        let exist = false;
+        jsonProductsList.forEach(element => {
+            console.log(element);
+            if(element.name == product.name){
+                element.number += 1;
+                console.log("Update number !");
+                exist = true;
+                jsonPro_basket.value = JSON.parse(localStorage.getItem("products")).filter( product => product.number > 0);
+    } 
+    });
+    if(!exist){
+        product.number = 1;
+        jsonProductsList.push(product);
+        console.log("Add product !");
+        jsonPro_basket.value = JSON.parse(localStorage.getItem("products")).filter( product => product.number > 0);
+    }
+    localStorage.setItem("products", JSON.stringify(jsonProductsList));
+
+    }
+
+    }
 
 </script>
 
@@ -62,7 +105,7 @@
                     </div>
                 </div>
     
-                <div class="add_contianer">
+                <div class="add_contianer" @click="addToBasket(current_product)">
                     <div class="add">
                         <img  :src="add" alt="add">
                         <p>Add to Bag</p>
@@ -84,14 +127,14 @@
 
                 <div class="basket_product">
 
-                    <BasketCard v-for="product_basket in updateBasketList" :key="product_basket.id" :pro="product_basket" />
+                    <BasketCard v-for="product_basket in change" :key="product_basket.id" :pro="product_basket" />
 
                 </div>
 
                 <RouterLink to="/basket" href="" class="button">
                 <div class="basket_add">
                     <img :src="bag" alt="bag">
-                    <p>Check Out</p>
+                    <p>View Bag</p>
                 </div>
                 </RouterLink>
             </div>
@@ -136,13 +179,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: gray;
+        background-color: white;
         border-radius: 10px;
-        width: 20%;
+        width: 400px;
         height: 300px;
     }
     .info{
-        width: 75%;
+        width: 65%;
     }
     .box1{
         display: flex;
@@ -162,6 +205,7 @@
         justify-content: center;
         align-items: center;
         background-color: black;
+        color: white;
         width: 120px;
         height: 20px;
         gap: 5px;
@@ -210,7 +254,7 @@
         width: 70%;
         height: 45%;
         border-radius: 20px;
-        background-color: gray;
+        background-color: #EDEDED;
         padding: 0px 10px 0px 10px;
     }
     .basket_div{

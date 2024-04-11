@@ -103,7 +103,7 @@
         width: 70%;
         height: 45%;
         border-radius: 20px;
-        background-color: gray;
+        background-color: #EDEDED;
         padding: 0px 10px 0px 10px;
     }
     .basket_div{

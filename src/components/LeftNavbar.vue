@@ -4,7 +4,6 @@
     import { RouterLink } from "vue-router";
 
     // The image import
-    import menu from "../assets/menu.svg"
     import home from "../assets/Home.svg"
     import basket from "../assets/Basket.svg"
     import notification from "../assets/notification.svg"
@@ -18,7 +17,6 @@
 
         <div class="box1">
             <a href=""><img :src="logo" alt="logo"></a>
-            <a href=""><img :src="menu" alt="menu"></a>
             <RouterLink to="/"><img :src="home" alt="Home"></RouterLink>
             <RouterLink to="/basket"><img :src="basket" alt="basket"></RouterLink>
         </div>
@@ -32,7 +30,7 @@
 
 <style scoped>
     .container{
-        background-color: gray;
+        background-color: white;
         color: black;
         height: 94vh;
         width: 60px;

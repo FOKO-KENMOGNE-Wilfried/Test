@@ -111,6 +111,7 @@ import { computed, ref, watch } from "vue"
     padding: 8px;
     border-radius: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 	.product_card{
     width: 230px;
@@ -124,7 +125,7 @@ import { computed, ref, watch } from "vue"
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: white;
     width: 230px;
     height: 260px;
     border-radius: 20px;
@@ -134,7 +135,7 @@ import { computed, ref, watch } from "vue"
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: white;
     width: 500px;
     height: 260px;
     border-radius: 20px;
