@@ -20,7 +20,7 @@
 
     // The function to update the products
     const updateBasketList = computed(() => {
-        return jsonPro_basket.value;
+        return jsonPro_basket.value.filter( product => product.number > 0);
     })
 
 </script>

@@ -1,18 +1,18 @@
 {
     "products": [
-        {"id": 1, "name": "Apple Watch", "price": "$ 529.99", "spec": "Serie 5 SE", "image": "/src/assets/products/apple_watch.svg", "type": false},
-        {"id": 2, "name": "Sony ZX33OBT", "price": "$ 39.99", "spec": "Light Grey", "image": "/src/assets/products/sony.svg", "type": false},
-        {"id": 3, "name": "Iphone 11", "price": "$ 619.99", "spec": "Serious Black", "image": "/src/assets/products/iphone_11_black.svg", "type": false},
-        {"id": 4, "name": "Iphone 11", "price": "$ 619.99", "spec": "Subway Blue", "image": "/src/assets/products/iphone_11_subway_blue.svg", "type": false},
-        {"id": 5, "name": "Macbook Pro 16", "price": "$ 3249.99", "spec": "Silver - M1 Pro", "image": "/src/assets/products/macbook_pro.svg", "type": true},
-        {"id": 6, "name": "Iphone 11", "price": "$ 619.99", "spec": "Milky White", "image": "/src/assets/products/iphone_11_white.svg", "type": false},
-        {"id": 7, "name": "Iphone 12", "price": "$ 729.99", "spec": "Rose Pink", "image": "/src/assets/products/iphone_12_pink.svg", "type": false},
-        {"id": 8, "name": "Iphone 12", "price": "$ 729.99", "spec": "Navy Blue", "image": "/src/assets/products/iphone_12_blue.svg", "type": false},
-        {"id": 9, "name": "Dell XPS 15 2-in-1", "price": "$ 3199.99", "spec": "Midnight Grey", "image": "/src/assets/products/dell_xps_2_in_1.svg", "type": true},
-        {"id": 10, "name": "Iphone 13 Pro", "price": "$ 1029.99", "spec": "Silly Silver", "image": "/src/assets/products/iphone_13_pro_silver.svg", "type": false},
-        {"id": 11, "name": "Iphone 13 Pro", "price": "$ 1029.99", "spec": "grey", "image": "/src/assets/products/iphone_13_grey.svg", "type": false},
-        {"id": 12, "name": "Samsung Galaxy Note 21", "price": "$ 999.99", "spec": "2 - Option", "image": "/src/assets/products/samsung_galaxy_note_21.svg", "type": false},
-        {"id": 13, "name": "Samsung Galaxy Note 21+", "price": "$ 849.99", "spec": "Liac Purple", "image": "/src/assets/products/samsung_galaxy_s21_plus.svg", "type": false},
-        {"id": 14, "name": "Dell XPS 13", "price": "$ 1799.99", "spec": "White", "image": "/src/assets/products/dell_xps_13.svg", "type": true}
+        {"id": 1, "name": "Apple Watch", "price": "$ 529.99", "spec": "Serie 5 SE", "image": "./public/products/apple_watch.svg", "type": false},
+        {"id": 2, "name": "Sony ZX33OBT", "price": "$ 39.99", "spec": "Light Grey", "image": "./public/products/sony.svg", "type": false},
+        {"id": 3, "name": "Iphone 11", "price": "$ 619.99", "spec": "Serious Black", "image": "./public/products/iphone_11_black.svg", "type": false},
+        {"id": 4, "name": "Iphone 11", "price": "$ 619.99", "spec": "Subway Blue", "image": "./public/products/iphone_11_subway_blue.svg", "type": false},
+        {"id": 5, "name": "Macbook Pro 16", "price": "$ 3249.99", "spec": "Silver - M1 Pro", "image": "./public/products/macbook_pro.svg", "type": true},
+        {"id": 6, "name": "Iphone 11", "price": "$ 619.99", "spec": "Milky White", "image": "./public/products/iphone_11_white.svg", "type": false},
+        {"id": 7, "name": "Iphone 12", "price": "$ 729.99", "spec": "Rose Pink", "image": "./public/products/iphone_12_pink.svg", "type": false},
+        {"id": 8, "name": "Iphone 12", "price": "$ 729.99", "spec": "Navy Blue", "image": "./public/products/iphone_12_blue.svg", "type": false},
+        {"id": 9, "name": "Dell XPS 15 2-in-1", "price": "$ 3199.99", "spec": "Midnight Grey", "image": "./public/products/dell_xps_2_in_1.svg", "type": true},
+        {"id": 10, "name": "Iphone 13 Pro", "price": "$ 1029.99", "spec": "Silly Silver", "image": "./public/products/iphone_13_pro_silver.svg", "type": false},
+        {"id": 11, "name": "Iphone 13 Pro", "price": "$ 1029.99", "spec": "grey", "image": "./public/products/iphone_13_grey.svg", "type": false},
+        {"id": 12, "name": "Samsung Galaxy Note 21", "price": "$ 999.99", "spec": "2 - Option", "image": "./public/products/samsung_galaxy_note_21.svg", "type": false},
+        {"id": 13, "name": "Samsung Galaxy Note 21+", "price": "$ 849.99", "spec": "Liac Purple", "image": "./public/products/samsung_galaxy_s21_plus.svg", "type": false},
+        {"id": 14, "name": "Dell XPS 13", "price": "$ 1799.99", "spec": "White", "image": "./public/products/dell_xps_13.svg", "type": true}
     ]
 }
